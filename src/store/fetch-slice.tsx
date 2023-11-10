@@ -1,11 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchProducts = createAsyncThunk('products/getAllProducts', async (thunkApi) => {
-const response = await fetch('https://decofurni-cea54-default-rtdb.europe-west1.firebasedatabase.app/')
+export const fetchProducts = createAsyncThunk('products/getAllProducts',
+ async (thunkApi) => {
+const response = await fetch(
+  'https://shop2-92044-default-rtdb.firebaseio.com/products.json'
+  )
  const data = await response.json();
+ console.log(data)
  return data;
 })
-
 
 const initialState = {
   entities: []
@@ -17,7 +20,8 @@ const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.entities.push(...action.payload)
+        state.entities = action.payload;
+
     })
   }
 })
@@ -31,23 +35,3 @@ export default productsSlice.reducer
 
 
 
-
-
-/*export default fetchCartData
-const fetchCartData = () => {
-  return async (dispatch: (arg0: any) => void) => {
-   const fetchData = async () => {
-      const response = await fetch(
-        'https://decofurni-cea54-default-rtdb.europe-west1.firebasedatabase.app/'
-      );
-
-      if (!response.ok) {
-        throw new Error('Could not fetch cart data!');
-      }
-
-      const data = await response.json();
-
-      return data;
-    };
-
-  }*/

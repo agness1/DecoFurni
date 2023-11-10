@@ -1,5 +1,8 @@
+import AllProducts from "@/components/products/productsPage.tsx/ProductsPage"
+
 export default function Products() {
+
     return (
-        <h1>HH</h1>
+        <AllProducts/>
     )
 } 

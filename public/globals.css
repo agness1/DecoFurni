@@ -8,4 +8,9 @@ body {
     margin: 0;
     box-sizing: border-box;
     
+   
+    .btn-filter {
+      @apply bg-black font-bold text-white hover:bg-green  m-8 normal-case w-1/2 rounded-3xl;
+    }
+  
 }

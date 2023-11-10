@@ -21,7 +21,7 @@ const HeroSection: FC = ({}) => {
                 <h3 className="text-3xl">Native light chair</h3>
                 <p className="text-lg md:basis-1/2">Refinement Chair with Ripped Seat, made of retro Eucalyptus <br/> wood, of great resistance, Kiln dried, made with a spike system <br/> and painted with P.U. (Polyurethane) With its entire structure <br/> painted in wood, it offers a lot of elegance to your environment <br/> and when cleaning is very easy, as it is washable and light for <br/> movement. Enough of receiving visitors and not having a place <br/> to accommodate them. With the chair, your days as a host will be <br/> marked by a lot of elegance and sophistication.</p>
             </div>
-            <img src={"/images/hero/hero5.png"} alt="hero" className="md:basis-1/2"/>
+            <img src={"/images/hero/hero.png"} alt="hero" className="md:basis-1/2"/>
         </div>
         <div className="h-screen bg-hero bg-cover bg-no-repeat relative">
             <Image src="/images/hero/hero7.png" width={200} height={100} className="absolute right-20 bottom-20 md:w-1/6" alt=""/>

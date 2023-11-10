@@ -3,6 +3,7 @@ import { styled, alpha } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
+import Link from "next/link";
 
 //drawer elements used
 import Drawer from "@mui/material/Drawer";
@@ -11,8 +12,10 @@ import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import FolderIcon from "@mui/icons-material/Folder";
-import ImageIcon from "@mui/icons-material/Image";
+import ChairIcon from '@mui/icons-material/Chair';
+import HomeIcon from '@mui/icons-material/Home';
+import CallIcon from '@mui/icons-material/Call';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DescriptionIcon from "@mui/icons-material/Description";
 import Button from "@mui/material/Button";
 
@@ -74,6 +77,7 @@ export default function MainNavigation() {
                 height: 1,
                 backgroundColor: "#dbc8ff"
               }}
+              
             >
               {/* when clicking the icon it calls the function toggleDrawer and closes the drawer by setting the variable open to false */}
               <IconButton sx={{ mb: 2 }}>
@@ -83,32 +87,49 @@ export default function MainNavigation() {
               <Divider sx={{ mb: 2 }} />
 
               <Box sx={{ mb: 2 }}>
+                <Link href={'/'}>
                 <ListItemButton>
                   <ListItemIcon>
-                    <ImageIcon sx={{ color: "primary.main" }} />
+                    <HomeIcon sx={{ color: "primary.main" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Home" />
+                </ListItemButton>
+               
+                </Link>
+                <Link href={'/products'}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <ChairIcon sx={{ color: "primary.main" }} />
                   </ListItemIcon>
                   <ListItemText primary="Products" />
                 </ListItemButton>
+                </Link>
+                
 
-                <ListItemButton>
-                  <ListItemIcon>
-                    <DescriptionIcon sx={{ color: "primary.main" }} />
-                  </ListItemIcon>
-                  <ListItemText primary="Contact" />
-                </ListItemButton>
+                <Link href={"/contact"}>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <CallIcon sx={{ color: "primary.main" }} />
+                    </ListItemIcon>
+                    <ListItemText primary="Contact" />
+                  </ListItemButton>
+                </Link>
 
-                <ListItemButton>
-                  <ListItemIcon>
-                    <FolderIcon sx={{ color: "primary.main" }} />
-                  </ListItemIcon>
-                  <ListItemText primary="Bag" />
-                </ListItemButton>
+                <Link href={"/shopingCart"}>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <ShoppingCartIcon sx={{ color: "primary.main" }} />
+                    </ListItemIcon>
+                    <ListItemText primary="Bag" />
+                  </ListItemButton>
+                </Link>
               </Box>
 
               
 
               <Box
                 sx={{
+                  width: '5rem',
                   display: "flex",
                   justifyContent: "center",
                   position: "absolute",
@@ -117,10 +138,10 @@ export default function MainNavigation() {
                   transform: "translate(-50%, 0)"
                 }}
               >
-                <Button variant="contained" sx={{ m: 1, width: 0.5 }}>
+                <Button className="btn-filter">
                   Register
                 </Button>
-                <Button variant="outlined" sx={{ m: 1, width: 0.5 }}>
+                <Button className="btn-filter">
                   Login
                 </Button>
               </Box>
