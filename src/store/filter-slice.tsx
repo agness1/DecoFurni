@@ -1,30 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const filterSlice = createSlice({
-name: 'filter',
-initialState: {value: 'all'},
-reducers: {
+  name: "filter",
+  initialState: { value: "all" },
+  reducers: {
     sofa(state) {
-        state.value = "sofa"
+      state.value = "sofa";
     },
     lamp(state) {
-        state.value = "lamp"
+      state.value = "lamp";
     },
     chair(state) {
-        state.value = "chair"
+      state.value = "chair";
     },
     wardrobe(state) {
-        state.value = "wardrobe"
+      state.value = "wardrobe";
     },
     all(state) {
-        state.value = "all"
+      state.value = "all";
     },
-
-}
+  },
 });
 
-
-
-export const {sofa, lamp, chair, wardrobe, all} = filterSlice.actions;
+export const { sofa, lamp, chair, wardrobe, all } = filterSlice.actions;
 
 export default filterSlice.reducer;

@@ -37,7 +37,7 @@ const shopingCartSlice = createSlice({
 
       if (existingItem && existingItem.quantity > 1) {
         existingItem.quantity -= 1;
-      } 
+      }
     },
 
     removeProduct: (state, action: PayloadAction<number>) => {
@@ -46,7 +46,6 @@ const shopingCartSlice = createSlice({
         state.splice(index, 1);
       }
     },
-   
   },
 });
 

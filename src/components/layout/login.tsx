@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import { auth } from "@/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import Link from "next/link";
 import { signOut } from "firebase/auth";
@@ -10,10 +8,9 @@ import MenuItem from "@mui/material/MenuItem";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import useSetLogin from "@/hooks/useSetLogin";
 const Login: FC = () => {
+  const { isLogin } = useSetLogin();
 
-const {isLogin} = useSetLogin()
-
-console.log(isLogin)
+  console.log(isLogin);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -23,35 +20,11 @@ console.log(isLogin)
   const handleClose = () => {
     setAnchorEl(null);
   };
-  //const [currentUres, setCurrentUser] = useState(localStorage.getItem('auth'))
- // const [isLogin, setIsLogin] = useState(false);
-
-  /*useEffect(() => {
-const currentUser = localStorage.getItem('auth')
-setCurrentUser(currentUser)
-}, [])*/
-
-  //
-
- /* useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log("zalogowany");
-        setIsLogin(true);
-      } else {
-        console.log("wylogowany");
-        setIsLogin(false);
-      }
-    });
-  }, []);*/
- // console.log(isLogin);
 
   const login = () => {
     return (
       <Link href={"/signInPage"}>
-        <MenuItem className="" onClick={handleClose}>
-          Login
-        </MenuItem>
+        <MenuItem onClick={handleClose}>Login</MenuItem>
       </Link>
     );
   };
@@ -66,17 +39,18 @@ setCurrentUser(currentUser)
         >
           Logout
         </MenuItem>
-        <Link href={"/user"}><MenuItem onClick={handleClose}>My account</MenuItem></Link>
-        
+        <Link href={"/user"}>
+          <MenuItem onClick={handleClose}>My account</MenuItem>
+        </Link>
       </>
     );
   };
 
   return (
     <>
-      <div>
+      <div className="p-4">
         <Button
-          className="bg-opal text-white  hover:bg-black p-2 px-8 text-sm capitalize"
+          className="md:bg-opal bg-black text-white  hover:bg-black p-2 px-8 text-sm capitalize"
           id="basic-button"
           aria-controls={open ? "basic-menu" : undefined}
           aria-haspopup="true"

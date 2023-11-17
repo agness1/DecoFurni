@@ -9,7 +9,6 @@ interface Data {
 
 const AllComments: FC<Data> = (props) => {
   const [comments, setComments] = useState([]);
-  const [isCommented, setIsCommented] = useState(true)
   const path = props.path;
 
   const usersCommentsRef = ref(db, `comments`);
@@ -18,7 +17,6 @@ const AllComments: FC<Data> = (props) => {
     onValue(usersCommentsRef, (snapshot) => {
       const commentsDatas = snapshot.val();
       setComments(commentsDatas);
-      console.log(commentsDatas);
     });
   }, []);
 
@@ -27,22 +25,31 @@ const AllComments: FC<Data> = (props) => {
       return Object.values(comments).map((item: any, index: any) => {
         if (item.productId == path) {
           return (
-            <div key={index}>
+            <div key={index} className="md:p-4 ">
               <Rating
                 name="half-rating-read"
                 defaultValue={item.rating}
                 precision={0.5}
                 readOnly
               />
-              <p className="font-bold">{item.userName}</p>
-              <p>{item.comment}</p>
+              <p className="font-bold text-opal">{item.userName}</p>
+              <p className="text-opal p-2 overflow-scroll md:overflow-auto">
+                {item.comment}
+              </p>
+              <hr></hr>
             </div>
           );
-        } /* else setIsCommented(false)*/
+        }
       });
-    } 
+    }
   };
 
-  return <div className="bg-slate-300 w-11/12 p-4 rounded-md ">  {isCommented ? displayComments() : <h1>No comments yet</h1>} </div>;
+  return (
+    <div className="bg-white w-full  md:p-4  p-2 rounded-md md:mt-20">
+      {" "}
+      <h1 className="text-center font-bold text-opal text-2xl">All Comments</h1>
+      {displayComments()}{" "}
+    </div>
+  );
 };
 export default AllComments;

@@ -17,22 +17,22 @@ import Link from "next/link";
 const Cart: FC = () => {
   const dispatch = useDispatch();
   const cartData = useSelector(selectCartData);
-  const data = cartData
+  const data = cartData;
   return (
-    <div className="relative">
-      <div className="w-1/2 h-fit pb-4  shadow-2xl absolute top-20 left-20">
+    <div className="md:relative flex flex-col">
+      <div className="  md:w-1/2 h-fit pb-4 shadow-2xl md:absolute md:top-20 md:left-20 mt-10">
         <div className="flex p-2 pl-4 items-center">
-          <Link href={"/"}>
+          <Link href={"/"} className="ml-20">
             <ArrowBackIosIcon className="text-xl" />
           </Link>
           <p>Shoping Continue</p>
         </div>
         <hr></hr>
-        <p className="pl-4 py-4">Shoping Cart</p>
+        <p className="pl-4 py-4 text-center font-bold text-xl">Shoping Cart</p>
 
         {cartData.map((product: any, index: any) => (
           <div className="flex justify-center" key={index}>
-            <div className="flex w-9/12 justify-between shadow-xl rounded-md items-center p-4">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-0 w-9/12 justify-between shadow-xl rounded-md items-center p-8">
               <img src={product.img} className="w-20"></img>
               <p>{product.name}</p>
               <div className="flex items-center gap-1">

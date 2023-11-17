@@ -13,9 +13,9 @@ import {
 const Color: FC = () => {
   const dispatch = useDispatch();
   return (
-    <div className="flex flex-col items-center w-full mt-4">
+    <div className="flex flex-col items-center  w-full mt-4">
       <p className="text-white text-xl">Colors</p>
-      <div className="flex gap-4 pt-4 flex-wrap w-1/3">
+      <div className="flex gap-4 pt-4 items-center justify-center flex-wrap w-1/3">
         <div
           className="w-5 h-5 bg-blue-500 rounded-full cursor-pointer"
           onClick={() => {

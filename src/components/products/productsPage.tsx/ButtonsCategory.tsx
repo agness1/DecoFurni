@@ -7,29 +7,26 @@ import { defaults } from "@/store/feature-slice";
 import { allColors } from "@/store/color-slice";
 import { setPageAll, setPageCategory } from "@/store/page-slice";
 
-
-
-const ButtonsCategory: FC = ({  }) => {
+const ButtonsCategory: FC = ({}) => {
   const dispatch = useDispatch();
- 
 
   return (
     <div className="w-full h-52 flex-wrap flex justify-center items-end  content-center md:content-end md:gap-8 md:p-2">
-
-      <Link href={{
+      <Link
+        href={{
           pathname: `/products`,
-        }}>
-      <Button
-        className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2 active:bg-black"
-        onClick={() => {
-        
-         dispatch(setPageAll())
-          dispatch(all());
-          dispatch(allColors())
         }}
       >
-        all
-      </Button>
+        <Button
+          className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2 active:bg-black"
+          onClick={() => {
+            dispatch(setPageAll());
+            dispatch(all());
+            dispatch(allColors());
+          }}
+        >
+          all
+        </Button>
       </Link>
       <Link
         href={{
@@ -41,8 +38,7 @@ const ButtonsCategory: FC = ({  }) => {
         <Button
           className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2 "
           onClick={() => {
-            
-            dispatch(setPageCategory())
+            dispatch(setPageCategory());
             dispatch(sofa());
             dispatch(defaults());
           }}
@@ -60,7 +56,7 @@ const ButtonsCategory: FC = ({  }) => {
         <Button
           className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2"
           onClick={() => {
-            dispatch(setPageCategory())
+            dispatch(setPageCategory());
             dispatch(chair());
             dispatch(defaults());
           }}
@@ -78,7 +74,7 @@ const ButtonsCategory: FC = ({  }) => {
         <Button
           className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2"
           onClick={() => {
-            dispatch(setPageCategory())
+            dispatch(setPageCategory());
             dispatch(wardrobe());
             dispatch(defaults());
           }}
@@ -96,10 +92,9 @@ const ButtonsCategory: FC = ({  }) => {
         <Button
           className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2"
           onClick={() => {
-          
             dispatch(lamp());
             dispatch(defaults());
-            dispatch(setPageCategory())
+            dispatch(setPageCategory());
           }}
         >
           Lamps

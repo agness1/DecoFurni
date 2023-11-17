@@ -1,39 +1,36 @@
-import * as React from 'react';
-import Rating from '@mui/material/Rating';
-import Box from '@mui/material/Box';
-import StarIcon from '@mui/icons-material/Star';
-
-
+import * as React from "react";
+import Rating from "@mui/material/Rating";
+import Box from "@mui/material/Box";
+import StarIcon from "@mui/icons-material/Star";
 
 const labels: { [index: string]: string } = {
-  0.5: 'Useless',
-  1: 'Useless+',
-  1.5: 'Poor',
-  2: 'Poor+',
-  2.5: 'Ok',
-  3: 'Ok+',
-  3.5: 'Good',
-  4: 'Good+',
-  4.5: 'Excellent',
-  5: 'Excellent+',
+  0.5: "Useless",
+  1: "Useless+",
+  1.5: "Poor",
+  2: "Poor+",
+  2.5: "Ok",
+  3: "Ok+",
+  3.5: "Good",
+  4: "Good+",
+  4.5: "Excellent",
+  5: "Excellent+",
 };
 
 function getLabelText(value: number) {
-  return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
+  return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
 }
 
 export default function HoverRating(props: any) {
   const [value, setValue] = React.useState<number | null>(2);
   const [hover, setHover] = React.useState(-1);
 
-
-  props.onValueRating(value)
+  props.onValueRating(value);
   return (
     <Box
       sx={{
         width: 200,
-        display: 'flex',
-        alignItems: 'center',
+        display: "flex",
+        alignItems: "center",
       }}
     >
       <Rating

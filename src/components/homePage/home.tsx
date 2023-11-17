@@ -4,15 +4,12 @@ import HeroSection from "./hero";
 import FooterSection from "./footer";
 
 const HomePage: FC = ({}) => {
-
-
-    return (
-        <>
-        <HeaderSection/>
-        <HeroSection/>
-        <FooterSection/>
-        </>
-        
-    )
+  return (
+    <>
+      <HeaderSection />
+      <HeroSection />
+      <FooterSection />
+    </>
+  );
 };
 export default HomePage;
