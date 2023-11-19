@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Button from "@mui/material/Button";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { sofa, lamp, wardrobe, chair, all } from "../../../store/filter-slice";
@@ -17,8 +16,8 @@ const ButtonsCategory: FC = ({}) => {
           pathname: `/products`,
         }}
       >
-        <Button
-          className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2 active:bg-black"
+        <button
+          className="lowercase bg-opal text-white w-32 hover:bg-black rounded-md m-2 active:bg-black p-2"
           onClick={() => {
             dispatch(setPageAll());
             dispatch(all());
@@ -26,7 +25,7 @@ const ButtonsCategory: FC = ({}) => {
           }}
         >
           all
-        </Button>
+        </button>
       </Link>
       <Link
         href={{
@@ -35,8 +34,8 @@ const ButtonsCategory: FC = ({}) => {
         }}
         className="visited:bg-black"
       >
-        <Button
-          className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2 "
+        <button
+          className="lowercase bg-opal text-white w-32 hover:bg-black rounded-md m-2 p-2 "
           onClick={() => {
             dispatch(setPageCategory());
             dispatch(sofa());
@@ -44,7 +43,7 @@ const ButtonsCategory: FC = ({}) => {
           }}
         >
           Sofas
-        </Button>
+        </button>
       </Link>
 
       <Link
@@ -53,8 +52,8 @@ const ButtonsCategory: FC = ({}) => {
           query: { category: "chairs" },
         }}
       >
-        <Button
-          className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2"
+        <button
+          className="lowercase bg-opal text-white w-32 hover:bg-black rounded-md m-2 p-2"
           onClick={() => {
             dispatch(setPageCategory());
             dispatch(chair());
@@ -62,7 +61,7 @@ const ButtonsCategory: FC = ({}) => {
           }}
         >
           Chairs
-        </Button>
+        </button>
       </Link>
 
       <Link
@@ -71,8 +70,8 @@ const ButtonsCategory: FC = ({}) => {
           query: { category: "wardrobes" },
         }}
       >
-        <Button
-          className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2"
+        <button
+          className="lowercase bg-opal text-white w-32 hover:bg-black rounded-md m-2 p-2"
           onClick={() => {
             dispatch(setPageCategory());
             dispatch(wardrobe());
@@ -80,7 +79,7 @@ const ButtonsCategory: FC = ({}) => {
           }}
         >
           Wardrobes
-        </Button>
+        </button>
       </Link>
 
       <Link
@@ -89,8 +88,8 @@ const ButtonsCategory: FC = ({}) => {
           query: { category: "lamps" },
         }}
       >
-        <Button
-          className="lowercase bg-opal text-white w-20 hover:bg-black rounded-md m-2"
+        <button
+          className="lowercase bg-opal text-white w-32 hover:bg-black rounded-md m-2 p-2"
           onClick={() => {
             dispatch(lamp());
             dispatch(defaults());
@@ -98,7 +97,7 @@ const ButtonsCategory: FC = ({}) => {
           }}
         >
           Lamps
-        </Button>
+        </button>
       </Link>
     </div>
   );

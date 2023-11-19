@@ -25,18 +25,11 @@ const ProductItem: FC<{ product: Product }> = ({ product }) => {
           <img src={product.img} className="w-72 rounded-md h-44"></img>
           <h2 className="text-xl pt-4">{product.name}</h2>
           <p className=" text-lg p-4">{product.price}$</p>
-          <Button
-            variant="contained"
-            sx={{
-              color: "black",
-              "&:hover": {
-                backgroundColor: "#384353",
-                color: "white",
-              },
-            }}
+          <button
+            className="bg-opal p-2 text-white rounded-md hover:bg-black"
           >
             See more
-          </Button>
+          </button>
         </div>
       </Link>
     </div>

@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Button from "@mui/material/Button";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
@@ -83,18 +82,18 @@ const SignIn: FC = () => {
           {errors?.password && errors.password.message}
         </small>
         <div className="flex gap-4 w-full justify-center mt-4">
-          <Button
+          <button
             onClick={signIn}
             type="submit"
-            className=" bg-opal text-white w-1/3 rounded-lg mt-4 cursor-pointer hover:bg-black hover:text-white capitalize"
+            className=" bg-opal text-white w-32 rounded-lg mt-4 cursor-pointer hover:bg-black hover:text-white capitalize p-2"
           >
             Sign In
-          </Button>
+          </button>
 
           <Link href={"/signUpPage"}>
-            <Button className="bg-opal text-white w-1/3 rounded-lg mt-4 hover:bg-black hover:text-white lowercase">
+            <button className="bg-opal text-white w-24 rounded-lg mt-4 hover:bg-black hover:text-white lowercase p-2">
               Sign up
-            </Button>
+            </button>
           </Link>
         </div>
       </form>

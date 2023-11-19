@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { auth } from "@/firebase";
-import { Button } from "@mui/material";
 import Link from "next/link";
 import { signOut } from "firebase/auth";
 import Menu from "@mui/material/Menu";
@@ -49,8 +48,8 @@ const Login: FC = () => {
   return (
     <>
       <div className="p-4">
-        <Button
-          className="md:bg-opal bg-black text-white  hover:bg-black p-2 px-8 text-sm capitalize"
+        <button
+          className="md:bg-opal bg-black text-white  hover:bg-black p-2 px-8 text-sm capitalize rounded-md"
           id="basic-button"
           aria-controls={open ? "basic-menu" : undefined}
           aria-haspopup="true"
@@ -58,7 +57,7 @@ const Login: FC = () => {
           onClick={handleClick}
         >
           <AccountCircleIcon />
-        </Button>
+        </button>
         <Menu
           id="basic-menu"
           anchorEl={anchorEl}

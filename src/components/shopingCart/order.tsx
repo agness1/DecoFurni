@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
 import { selectCartData } from "../../store/shopingCart-slice";
 import { auth } from "@/firebase";
@@ -167,17 +166,17 @@ const Order: FC<Data> = (props) => {
         <p className="text-white">Total</p>
         <p className="text-white">${calculateTotal()}</p>
       </div>
-      <Button
+      <button
         onClick={handleSubmit((data) => {
           onSubmit(data);
           savePurchaseToDatabase(userDataPurchases, userID);
         })}
         type="submit"
-        className="flex  justify-between  bg-green hover:bg-black text-white p-4"
+        className="flex  justify-between  bg-green hover:bg-black text-white p-4 rounded-md"
       >
         <p>${calculateTotal()}</p>
         <p>Checkout</p>
-      </Button>
+      </button>
     </div>
   );
 };

@@ -79,8 +79,8 @@ const ProductDetailsPage: FC = () => {
                 </div>
 
                 <div>
-                  <Button
-                    className="bg-opal text-white  hover:bg-black p-2 px-8"
+                  <button
+                    className="bg-opal text-white  hover:bg-black p-2 px-8 rounded-md"
                     onClick={() => {
                       notify();
                       dispatch(
@@ -96,7 +96,7 @@ const ProductDetailsPage: FC = () => {
                   >
                     {" "}
                     Add <ShoppingCartIcon className="ml-2 text-lg" />{" "}
-                  </Button>
+                  </button>
                   <FavoriteIcon
                     className="ml-8 text-4xl hover:scale-125 hover:transition-all hover:text-black cursor-pointer text-opal"
                     onClick={() => {

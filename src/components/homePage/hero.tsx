@@ -21,7 +21,7 @@ const HeroSection: FC = ({}) => {
 
         <Image
           className=" p-4 md:absolute right-20 top-20 "
-          src={"/images/hero/hero4.jpg "}
+          src={"/images/hero/hero4.png"}
           width={400}
           height={200}
           alt="hero"

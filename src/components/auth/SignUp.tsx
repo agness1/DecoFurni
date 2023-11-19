@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Button from "@mui/material/Button";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
@@ -66,12 +65,12 @@ const SignUp: FC = () => {
             onSubmit(data);
             signUp();
           })}
-          className="flex flex-col justify-center items-center gap-4 bg-white shadow-2xl p-8 md:h-3/5 md:w-1/3 rounded-md relative"
+          className="flex flex-col justify-center items-center gap-4 bg-white shadow-2xl p-8 md:h-5/6 md:w-1/3 rounded-md relative"
         >
           <Link href={"/"}>
             <CloseIcon className="absolute left-4 top-4 hover:scale-125 hover:text-black text-opal" />
           </Link>
-          <h1 className="font-bold text-opal">Create Account</h1>
+          <h1 className="font-bold text-opal text-xl mb-4">Create Account</h1>
           <label className="text-xl text-opal">Name</label>
           <input
             type="text"
@@ -91,7 +90,7 @@ const SignUp: FC = () => {
             {...register("email", registerOptions.email)}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border-2 rounded-lg md:w-1/2 h-10"
+            className="border-2 rounded-lg md:w-1/2 h-10 "
           />
           <small className="text-danger">
             {errors?.email && errors.email.message}
@@ -103,23 +102,23 @@ const SignUp: FC = () => {
             {...register("password", registerOptions.password)}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="rounded-lg md:w-1/2 h-10 border-2"
+            className="rounded-lg md:w-1/2 border-2 h-10"
           />
           <small className="text-danger">
             {errors?.password && errors.password.message}
           </small>
-          <div className="flex gap-4 w-full justify-center mt-4">
-            <Button
+          <div className="flex gap-4 w-full justify-center mt-4 ">
+            <button
               type="submit"
-              className=" bg-opal text-white w-1/3 rounded-lg mt-4 cursor-pointer hover:bg-black hover:text-white capitalize"
+              className=" bg-opal text-white w-32 rounded-lg cursor-pointer hover:bg-black hover:text-white capitalize p-2"
             >
               Sign Up
-            </Button>
+            </button>
 
             <Link href={"/signInPage"}>
-              <Button className="bg-opal text-white w-1/3 rounded-lg mt-4 hover:bg-black hover:text-white capitalize">
+              <button className="bg-opal text-white w-24 rounded-lg  hover:bg-black hover:text-white capitalize p-2">
                 Sign In
-              </Button>
+              </button>
             </Link>
           </div>
         </form>

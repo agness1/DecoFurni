@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { FC, useState } from "react";
 import { Button } from "@mui/material";
 import { auth } from "@/firebase";
@@ -6,7 +5,6 @@ import Purchases from "./purchases";
 import Modal from "@mui/material/Modal";
 import { updateProfile } from "firebase/auth";
 import useSetLogin from "@/hooks/useSetLogin";
-import { useRouter } from "next/router";
 
 const Account: FC = () => {
   const user = auth.currentUser;
@@ -89,28 +87,28 @@ const Account: FC = () => {
       <div className="flex gap-4 md:gap-64 w-full justify-center flex-col md:flex-row">
         <div className="flex flex-col justify-around md:items-start items-center  md:p-8 h-60 md:w-1/2 md:shadow-2xl shadow-md">
           <p className="font-bold">nick: {user?.displayName}</p>
-          <Button
-            className="bg-opal text-white  hover:bg-black p-2 px-8 text-sm capitalize"
+          <button
+            className="bg-opal text-white  hover:bg-black p-2 px-8 text-sm capitalize rounded-md"
             onClick={() => {
               handleOpen(), setUpdate("nick");
             }}
           >
             Update your Nick
-          </Button>
+          </button>
           <p className="font-bold">Your e-mail: {user?.email}</p>
         </div>
         <div className="flex flex-col items-center gap-4 p-4 shadow-md">
           <div className="w-24 h-24 bg-slate-600 rounded-full">
             <img src={photoSource} alt="User Photo" />
           </div>
-          <Button
-            className="bg-opal text-white  hover:bg-black p-2 px-8 mt-8 text-sm capitalize"
+          <button
+            className="bg-opal text-white  hover:bg-black p-2 px-8 mt-8 text-sm capitalize rounded-md"
             onClick={() => {
               handleOpen(), setUpdate("avatar");
             }}
           >
             Update your avatar
-          </Button>
+          </button>
         </div>
       </div>
       <div className="w-4/5">
