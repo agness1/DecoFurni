@@ -20,7 +20,7 @@ const Account: FC = () => {
 
   const updateAvatar = () => {
     const update = () => {
-      if (isLogin) {
+      if (isLogin  && user) {
         updateProfile(user, {
           photoURL: avatar,
         }).then(() => {
@@ -52,7 +52,7 @@ const Account: FC = () => {
 
   const updateNick = () => {
     const update = () => {
-      if (isLogin) {
+      if (isLogin && user) {
         updateProfile(user, {
           displayName: nick,
         }).then(() => {
@@ -100,7 +100,7 @@ const Account: FC = () => {
         </div>
         <div className="flex flex-col items-center gap-4 p-4 shadow-md">
           <div className="w-24 h-24 bg-slate-600 rounded-full">
-            <img src={user?.photoURL} className="" />
+            <img src={user?.photoURL} alt="User Photo" />
           </div>
           <Button
             className="bg-opal text-white  hover:bg-black p-2 px-8 mt-8 text-sm capitalize"
