@@ -4,6 +4,7 @@ import { Roboto } from 'next/font/google'
 import "../../public/globals.css"
 import { Providers } from '@/provider';
 import 'tailwindcss/tailwind.css';
+import Head from 'next/head'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -14,7 +15,10 @@ const roboto = Roboto({
  
 export default function MyApp({ Component, pageProps }: AppProps) {
 
-  return ( <Providers >
+  return (  <Providers > 
+    <Head>
+        <title>DecoFurni</title>
+      </Head>
    <Navigation/> <main className={roboto.className }>
   <Component {...pageProps} />
 </main>
