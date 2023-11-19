@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { FC, useState } from "react";
 import { Button } from "@mui/material";
 import { auth } from "@/firebase";
@@ -17,7 +18,7 @@ const Account: FC = () => {
   const [update, setUpdate] = useState("");
   const [avatar, setAvatar] = useState("");
   const [nick, setNick] = useState("");
-
+  const photoSource = user?.photoURL || '';
   const updateAvatar = () => {
     const update = () => {
       if (isLogin  && user) {
@@ -100,7 +101,7 @@ const Account: FC = () => {
         </div>
         <div className="flex flex-col items-center gap-4 p-4 shadow-md">
           <div className="w-24 h-24 bg-slate-600 rounded-full">
-            <img src={user?.photoURL} alt="User Photo" />
+            <img src={photoSource} alt="User Photo" />
           </div>
           <Button
             className="bg-opal text-white  hover:bg-black p-2 px-8 mt-8 text-sm capitalize"
