@@ -64,7 +64,7 @@ const SignIn: FC = () => {
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="border-2 rounded-lg md:w-1/2 h-10"
+          className="border-2 rounded-lg md:w-1/2 h-10 p-4 border-opal "
         />
         <small className="text-danger">
           {errors?.email && errors.email.message}
@@ -76,7 +76,7 @@ const SignIn: FC = () => {
           {...register("password", registerOptions.password)}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="rounded-lg md:w-1/2 h-10 border-2"
+          className="rounded-lg md:w-1/2 h-10 border-2 p-4 border-opal "
         />
         <small className="text-danger">
           {errors?.password && errors.password.message}

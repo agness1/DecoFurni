@@ -97,9 +97,9 @@ const Account: FC = () => {
           </button>
           <p className="font-bold">Your e-mail: {user?.email}</p>
         </div>
-        <div className="flex flex-col items-center gap-4 p-4 shadow-md">
-          <div className="w-24 h-24 bg-slate-600 rounded-full">
-            <img src={photoSource} alt="User Photo" />
+        <div className="flex  flex-col items-center gap-4 p-4 shadow-md">
+          <div className="w-36 h-32 bg-slate-600 rounded-full">
+            <img src={photoSource} alt="User Photo" className="w-full h-full" />
           </div>
           <button
             className="bg-opal text-white  hover:bg-black p-2 px-8 mt-8 text-sm capitalize rounded-md"

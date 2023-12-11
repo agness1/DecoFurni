@@ -44,19 +44,19 @@ const AddComment: FC<Data> = (props) => {
   };
 
   return (
-    <div className=" flex flex-col items-center w-1/2 gap-8 pt-8 pb-10 mt-20 ">
-      <h2 className=" text-xl text-white">Add comment</h2>
+    <div className=" bg-opal rounded-md flex flex-col items-center  w-full md:h-96 gap-8 pt-8 pb-10 md:mt-20 md:mb-0 mb-10 ">
+      <h2 className="text-2xl font-bold text-white">Add comment</h2>
       <HoverRating onValueRating={ratingValue} />
       <form className="flex flex-col items-center gap-4 ">
         <textarea
           placeholder="max 100 characters"
           maxLength={100}
           onChange={(e) => setComment(e.target.value)}
-          className="bg-black text-white rounded-md w-72 h-20"
+          className=" md:p-2 text-center rounded-md md:mb-4 md:w-96 h-32"
         ></textarea>
         <button
           onClick={() => handleComments(commentData)}
-          className="bg-black text-white hover:bg-green p-2 px-8 capitalize w-1/2 m-auto rounded-md"
+          className="transition ease-in-out delay-150 bg-black hover:-translate-y-1 hover:scale-110 hover:bg-green duration-300  text-white p-2 px-8 capitalize w-1/2 m-auto rounded-md"
         >
           add
         </button>

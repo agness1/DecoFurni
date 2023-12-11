@@ -1,12 +1,13 @@
 import type { AppProps } from 'next/app'
 import Navigation from '@/components/layout/navitagion';
 import { Roboto } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import "../../public/globals.css"
 import { Providers } from '@/provider';
 import 'tailwindcss/tailwind.css';
 import Head from 'next/head'
 
-const roboto = Roboto({
+const montserrat = Montserrat({
   weight: ['400', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
@@ -19,7 +20,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <Head>
         <title>DecoFurni</title>
       </Head>
-   <Navigation/> <main className={roboto.className }>
+    <main className={montserrat.className }>
+    <Navigation />
   <Component {...pageProps} />
 </main>
     </Providers>
