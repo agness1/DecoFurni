@@ -10,7 +10,7 @@ const ButtonsCategory: FC = ({}) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="w-full h-52 flex-wrap flex justify-center items-end  content-center md:content-end md:gap-8 md:p-2">
+    <div className="w-full h-52 flex-wrap flex justify-center items-end content-center md:content-end md:gap-8 md:p-2">
       <Link
         href={{
           pathname: `/products`,

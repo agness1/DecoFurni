@@ -43,7 +43,8 @@ export default function MainNavigation() {
             sm: "none",
           },
           position: "absolute",
-          left: "1rem",
+          left: "0.5rem",
+
         }}
       >
         <MenuIcon />
