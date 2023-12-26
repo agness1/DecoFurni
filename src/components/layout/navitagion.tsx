@@ -4,8 +4,24 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import Link from "next/link";
 import MainNavigation from "./hamburger";
 import Login from "./login";
+import Badge, { BadgeProps } from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import { selectCartData } from "../../store/shopingCart-slice";
+import { useSelector } from "react-redux";
 
 const Navigation: FC = ({}) => {
+
+  const cartData = useSelector(selectCartData);
+  console.log(cartData)
+
+  const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      right: -3,
+      top: 13,
+      border: `2px solid `,
+      padding: '0 4px',
+    },
+  }));
 
   return (
     <>
@@ -23,13 +39,14 @@ const Navigation: FC = ({}) => {
             Contact
           </Link>
         </div>
-
         <div className="flex gap-10 items-center">
           <Link href="/wishListsPage">
             <FavoriteIcon />
           </Link>
           <Link href="/shopingCart">
-            <ShoppingCartIcon />
+          <StyledBadge badgeContent={cartData.map((item: any) => item.quantity)} color="secondary">
+        <ShoppingCartIcon />
+      </StyledBadge>
           </Link>
           <Login />
         </div>
