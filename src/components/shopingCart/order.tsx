@@ -118,7 +118,7 @@ const Order: FC<Data> = (props) => {
           required
           {...register("name", registerOptions.name)}
         ></input>
-        <small className="text-danger">
+        <small className="text-danger text-red-500">
           {errors?.name && errors.name.message}
         </small>
         <label>Card Number</label>
@@ -129,7 +129,7 @@ const Order: FC<Data> = (props) => {
           {...register("cardNumber", registerOptions.cardNumber)}
           placeholder="111 2222 6645 4444"
         ></input>
-        <small className="text-danger">
+        <small className="text-danger text-red-500">
           {errors?.cardNumber && errors.cardNumber.message}
         </small>
         <div className="flex">
@@ -141,7 +141,7 @@ const Order: FC<Data> = (props) => {
               required
               {...register("date", registerOptions.date)}
             ></input>
-            <small className="text-danger">
+            <small className="text-danger text-red-500">
               {errors?.date && errors.date.message}
             </small>
           </div>
@@ -155,7 +155,7 @@ const Order: FC<Data> = (props) => {
               type="number"
               placeholder="123"
             ></input>
-            <small className="text-danger">
+            <small className="text-danger text-red-500">
               {errors?.cvv && errors.cvv.message}
             </small>
           </div>
@@ -181,4 +181,3 @@ const Order: FC<Data> = (props) => {
   );
 };
 export default Order;
-//

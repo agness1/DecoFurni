@@ -9,14 +9,22 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { addProduct } from "@/store/shopingCart-slice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import AddComment from "./comments/AddComment";
 import AllComments from "./comments/AllComments";
 import { auth } from "@/firebase";
 import { db } from "@/firebase";
 import { ref, push } from "firebase/database";
 import useSetLogin from "@/hooks/useSetLogin";
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref,
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const ProductDetailsPage: FC = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -27,7 +35,6 @@ const ProductDetailsPage: FC = () => {
   const { entities } = useSelector((state: RootState) => state.products);
 
   const dispatch = useDispatch<AppDispatch>();
-  const notify = () => toast("Cart product added!");
   useEffect(() => {
     if (productRef.current === false) {
       dispatch(fetchProducts());
@@ -46,6 +53,20 @@ const ProductDetailsPage: FC = () => {
     });
   };
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   const allDataProducts = Array.from(Object.values(entities));
   const productData = allDataProducts.map((productGroup: any, index) => (
     <>
@@ -53,7 +74,7 @@ const ProductDetailsPage: FC = () => {
         const product = productGroup[productId];
         if (product.id == path)
           return (
-            <div className=" min-h-screen bg-slate-500  md:mb-0 pt-32 md:p-20">
+            <div className=" min-h-screen max-w-full bg-slate-500  md:mb-0 pt-32 md:p-20">
               <div
                 key={product.id}
                 className=" md:py-30 w-full flex flex-col items-center "
@@ -83,7 +104,7 @@ const ProductDetailsPage: FC = () => {
                   <button
                     className=" transition ease-in-out delay-150 bg-black hover:-translate-y-1 hover:scale-110 hover:bg-green duration-300 p-2 px-8 rounded-md border-black"
                     onClick={() => {
-                      notify();
+                      handleClick();
                       dispatch(
                         addProduct({
                           name: product.name,
@@ -109,9 +130,16 @@ const ProductDetailsPage: FC = () => {
                       }
                     }}
                   ></FavoriteIcon>
-                  <ToastContainer />
+                  
                 </div>
               </div>
+              <Stack spacing={2} sx={{ width: '100%' }}>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Cart product added!
+        </Alert>
+      </Snackbar>
+    </Stack>
             </div>
           );
       })}

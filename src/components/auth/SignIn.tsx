@@ -66,7 +66,7 @@ const SignIn: FC = () => {
           onChange={(e) => setEmail(e.target.value)}
           className="border-2 rounded-lg md:w-1/2 h-10 p-4 border-opal "
         />
-        <small className="text-danger">
+        <small className="text-danger text-red-500">
           {errors?.email && errors.email.message}
         </small>
         <label className="text-xl text-opal">Password</label>
@@ -78,7 +78,7 @@ const SignIn: FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           className="rounded-lg md:w-1/2 h-10 border-2 p-4 border-opal "
         />
-        <small className="text-danger">
+        <small className="text-danger text-red-500">
           {errors?.password && errors.password.message}
         </small>
         <div className="flex gap-4 w-full justify-center mt-4">
